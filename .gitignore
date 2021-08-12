@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+*.xcodeproj
+*.DS_Store
+SML_log
+result
+build
