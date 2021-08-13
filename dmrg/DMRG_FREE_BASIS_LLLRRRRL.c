@@ -1,0 +1,12 @@
+#include <stdlib.h>
+#include "dmrg.h"
+
+void DMRG_FREE_BASIS_LLLRRRRL(DMRG_BASIS *Basis) {
+   
+   FREE_ARRAY_SINT1(Basis->LL_LLLRRRRL);
+   FREE_ARRAY_SINT1(Basis->LR_LLLRRRRL);
+   FREE_ARRAY_SINT1(Basis->RL_LLLRRRRL);
+   FREE_ARRAY_SINT1(Basis->RR_LLLRRRRL);
+   FREE_ARRAY_INT1(Basis->Inv_LLLRRRRL);
+   
+}
