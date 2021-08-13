@@ -5,8 +5,10 @@
 #include <time.h>
 #include <omp.h>
 #include <sys/stat.h>
-#include <lapack.h>
+//#include <lapack.h>
 #include "SML.h"
+
+extern void dstev_(char *, int *, double *, double *, double *, int *, double *, int *);
 
 void LANCZOS(BOX_LAN *Box){
    

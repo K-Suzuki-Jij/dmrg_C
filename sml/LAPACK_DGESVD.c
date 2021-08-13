@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <lapack.h>
+//#include <lapack.h>
 #include "SML.h"
+
+extern void dgesvd_(char *, char *, int *, int *, double *, int *, double *, double *, int *, double *, int *, double *, int *, int *);
 
 void LAPACK_DGESVD(double **M,
                    int row,

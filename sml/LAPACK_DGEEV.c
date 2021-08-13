@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <float.h>
-#include <lapack.h>
+//#include <lapack.h>
 #include <math.h>
 #include "SML.h"
+
+extern void dgeev_(char *, char *, int *, double *, int *, double *, double *, double *, int *, double *, int *, double *, int *, int *);
 
 void LAPACK_DGEEV(double **Ham,
                   int dim,

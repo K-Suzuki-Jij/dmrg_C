@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <math.h>
 #include <omp.h>
-#include <lapack.h>
+//#include <lapack.h>
 #include <time.h>
 #include <sys/stat.h>
 #include "SML.h"
+
+extern void dspgv_(int *, char *, char *, int *, double *, double *, double *, double *, int *, double *, int *);
 
 void LOBPCG(BOX_LOBPCG *Box) {
    

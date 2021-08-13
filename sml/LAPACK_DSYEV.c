@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <lapack.h>
+//#include <lapack.h>
 #include "SML.h"
+
+extern void dsyev_(const char *JOBZ, const char *UPLO, const int *N, double *A, const int *LDA, double *W, double *WORK, const int *LWORK, int *INFO);
 
 void LAPACK_DSYEV(double **Ham,
                   int row,

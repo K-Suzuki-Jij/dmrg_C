@@ -4,8 +4,10 @@
 #include <omp.h>
 #include <time.h>
 #include <sys/stat.h>
-#include <lapack.h>
+//#include <lapack.h>
 #include "SML.h"
+
+extern void dspgv_(int *, char *, char *, int *, double *, double *, double *, double *, int *, double *, int *);
 
 void BLOCK_LOBPCG(BOX_BLOCK_LOBPCG *Box){
    

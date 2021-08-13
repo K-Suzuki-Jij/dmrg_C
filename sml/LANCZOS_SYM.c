@@ -4,9 +4,11 @@
 #include <string.h>
 #include <time.h>
 #include <omp.h>
-#include <lapack.h>
+//#include <lapack.h>
 #include <sys/stat.h>
 #include "SML.h"
+
+extern void dstev_(char *, int *, double *, double *, double *, int *, double *, int *);
 
 void LANCZOS_SYM(BOX_LAN *Box) {
    
