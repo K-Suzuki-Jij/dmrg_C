@@ -3,5 +3,6 @@
 *.o
 *.a
 SML_log
+SML_out
 result
 build
