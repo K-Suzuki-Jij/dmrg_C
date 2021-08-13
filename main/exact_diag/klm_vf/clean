@@ -1,0 +1,2 @@
+echo "rm -rf result SML_out"
+rm -rf result SML_out
