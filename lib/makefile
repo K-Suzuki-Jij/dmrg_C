@@ -1,7 +1,8 @@
-SMLDIR  := sml
-DMRGDIR := dmrg
-ONDIR   := onsite_op
-INCDIR  := ../include
+SMLDIR   := sml
+DMRGDIR  := dmrg
+ONDIR    := onsite_op
+EXACTDIR := exact
+INCDIR   := ../include
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Ofast -mtune=native -march=native -Xpreprocessor -fopenmp -I $(INCDIR)
@@ -9,11 +10,12 @@ LFLAGS = -llapack -lomp
 
 .PHONY: all sml dmrg
 
-all: sml dmrg op
+all: sml dmrg op ed
 
 sml : libsml.a
 dmrg: libdmrg.a
 op  : libonsite_op.a
+ed  : libexact.a
 
 ###SML
 libsml.a: $(addprefix $(SMLDIR)/,$(notdir $(patsubst %.c,%.o,$(wildcard ../$(SMLDIR)/*.c))))
@@ -38,6 +40,14 @@ libonsite_op.a: $(addprefix $(ONDIR)/,$(notdir $(patsubst %.c,%.o,$(wildcard ../
 $(ONDIR)/%.o: ../$(ONDIR)/%.c
 	@if [ ! -e `dirname $@` ]; then mkdir -p `dirname $@`; fi
 	$(CC) $(CFLAGS) -o $(ONDIR)/$(@F) -c ../$(ONDIR)/$(<F)
+	
+###EXACT
+libexact.a: $(addprefix $(EXACTDIR)/,$(notdir $(patsubst %.c,%.o,$(wildcard ../$(EXACTDIR)/*.c))))
+	ar r $@ $^
+
+$(EXACTDIR)/%.o: ../$(EXACTDIR)/%.c
+	@if [ ! -e `dirname $@` ]; then mkdir -p `dirname $@`; fi
+	$(CC) $(CFLAGS) -o $(EXACTDIR)/$(@F) -c ../$(EXACTDIR)/$(<F)
 
 clean:
-	rm -rf $(SMLDIR) $(DMRGDIR) $(ONDIR)
+	rm -rf $(SMLDIR) $(DMRGDIR) $(ONDIR) $(EXACTDIR)
