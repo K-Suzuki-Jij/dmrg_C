@@ -57,6 +57,7 @@ This is under construction. (maybe forever)
 
 ## Operation Check
 * Mac OS 13.1 on Apple M1 Max
+* Mac OS 13.1 on Intel CPU
 * Ubuntu 20.04.5 LTS on Ryzen 7950x
 
 
