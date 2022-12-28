@@ -4,9 +4,13 @@ ONDIR    := onsite_op
 EXACTDIR := exact
 INCDIR   := ../include
 
+# Mac OS clang
 CC = gcc
-CFLAGS = -Wall -Wextra -Ofast -mtune=native -march=native -Xpreprocessor -fopenmp -I $(INCDIR)
-LFLAGS = -llapack -lomp
+CFLAGS = -Wall -Wextra -Ofast -Xpreprocessor -fopenmp -I $(INCDIR)
+
+# Linux
+#CC = gcc
+#CFLAGS = -Wall -Wextra -Ofast -fopenmp -I $(INCDIR)
 
 .PHONY: all sml dmrg
 

@@ -11,17 +11,15 @@ TARGET   := $(OUTDIR)/$(PROGNAME)
 SRCS     := $(wildcard $(SRCDIR)/$(MAINDIR)/*.c) $(wildcard $(SRCDIR)/$(EXPDIR)/*.c) $(wildcard $(SRCDIR)/$(ALLOCDIR)/*.c) $(wildcard $(SRCDIR)/$(STATDIR)/*.c)
 OBJS     := $(addprefix $(OUTDIR)/,$(patsubst %.c,%.o,$(SRCS)))
 
-#CC = icc
-#CFLAGS = -Wall -g -qopenmp -I $(INCDIR)
-#LFLAGS = -mkl
-
-#CC = icc
-#CFLAGS = -Wall -Wextra -fast -qopenmp -I $(INCDIR)
-#LFLAGS = -mkl
-
+# Mac OS clang
 CC = gcc
 CFLAGS = -Ofast -Xpreprocessor -fopenmp -I $(INCDIR) -I include
-LFLAGS = -llapack -lomp -lsml -ldmrg -lonsite_op -L $(LIBDIR)
+LFLAGS = -ldmrg -lonsite_op -lsml -llapack -lomp -L $(LIBDIR)
+
+# Linux
+#CC = gcc
+#CFLAGS = -Ofast -fopenmp -I $(INCDIR) -I include
+#LFLAGS = -ldmrg -lonsite_op -lsml -llapack -lm -L $(LIBDIR)
 
 .PHONY: all clean
 

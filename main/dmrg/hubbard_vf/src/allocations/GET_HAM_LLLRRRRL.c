@@ -109,9 +109,6 @@ CRS1 *GET_HAM_LLLRRRRL(DMRG_BASIS *Dmrg_Basis, BLOCK *System, BLOCK *Enviro, MOD
    FREE_HAM_BOX(Box, Model);
    
    Dmrg_Time->make_ham = omp_get_wtime() - Dmrg_Time->make_ham;
-   
-   PRINT_CRS1(Ham, "H");
-   exit(1);
-   
+      
    return Ham;
 }
